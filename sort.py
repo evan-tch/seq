@@ -57,7 +57,8 @@ class SortableFile:
 
             # if the fallback file doesn't exist, exit
             if not os.path.isfile(self.filename):
-                print(f'Neither arg file nor default file found. Try again.\nArg: {invalid_arg_file}\nDef: {file_in}')
+                print(f'Neither arg file nor default file found. Try again.\nArg: {invalid_arg_file}\n'
+                      f'Def: {self.filename}')
                 exit(1)
 
     def sort(self):
@@ -98,7 +99,7 @@ class GenericEntry:
             self.chr = '23'
         elif self.chr.upper() == 'Y':
             self.chr = '24'
-        elif self.chr.upper() == 'MT':
+        elif self.chr.upper() == 'MT' or self.chr.upper() == 'M':
             self.chr = '25'
 
     def __str__(self):

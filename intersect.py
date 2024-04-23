@@ -115,7 +115,7 @@ class RegionFile:
 
 class Region:
     def __init__(self, line):
-        split_line = line.split('\t')
+        split_line = (line.strip()).split('\t')
         self.chrom = split_line[0]
         self.chromStart = split_line[1]
         self.chromEnd = split_line[2]
@@ -137,7 +137,7 @@ class Region:
 class Variant:
     def __init__(self, line):
         self.original = line.strip()
-        split_line = line.split('\t')
+        split_line = self.original.split('\t')
         self.chr = split_line[0]
         self.pos = split_line[1]
         split_line.clear()

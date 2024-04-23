@@ -90,7 +90,12 @@ class SortableFile:
 class GenericEntry:
     def __init__(self, line):
         self.original = line.strip()
-        self.chr, self.start, self.id_or_end = line.split('\t', 2)
+
+        split_line = self.original.split('\t')
+        self.chr = split_line[0]
+        self.start = split_line[1]
+        self.id_or_end = split_line[2]
+        split_line.clear()
 
         if self.chr.startswith('chr'):
             self.chr = self.chr[3:]
